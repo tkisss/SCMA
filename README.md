@@ -5,6 +5,12 @@
 
     python -m pip install --index-url https://test.pypi.org/simple/ --no-deps scma==0.1.1
     
+#### install from GitHub
+
+	git clone https://github.com/tkisss/SCMA.git
+	cd SCMA
+	python setup.py install
+    
 ## Quick Start
 
 ### Command line
