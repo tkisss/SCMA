@@ -1,0 +1,9 @@
+numpy>=1.17.2
+pandas>=0.25.1
+scipy>=1.3.1
+scikit-learn>=0.22.1
+scanpy>=1.4.5
+matplotlib>=3.0.3
+seaborn>=0.9.0
+umap>=0.4.6
+pingouin>=0.3.9
