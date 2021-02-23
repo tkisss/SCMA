@@ -15,9 +15,9 @@
 
 ### Command line
 
-    scma.py -f INPUT_FILE -o OUTPUT_PATH
+    scma.py -f INPUT_FILE -g group_name1 group_name2 group_name3... -o OUTPUT_PATH
     
-    INPUT_FILE: file of single-cell metabolomics, each two columns are a group which contains the ratio of nuclear to mass and its signal value, cell names should be groupname-xx, for example: A549-1,A549-2, gefitinib-A549-6,gefitinib-A549-8..., name before the last '-' will be considered as the group name, so the groups are A549 and gefitinib-A549.
+    INPUT_FILE: file of single-cell metabolomics, each two columns are a group which contains the ratio of nuclear to mass and its signal value. Cell names should be like groupname-xx, for example: A549-1,A549-2, gefitinib-6,gefitinib-8..., name before the first '-' will be considered as the group name, so the groups are A549 and gefitinib. Otherwise, -g should be provided.
     OUTPUT_PATH: output path
 
 #### other parameters 
