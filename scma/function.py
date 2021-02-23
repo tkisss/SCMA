@@ -154,11 +154,12 @@ def _process_cell(meta,
     
     merged_index = _merge(meta.index, ppm_threshold=ppm_threshold_peak)
     benchmark = _distance(meta.index[merged_index], benchmark)
-    meta['benchmark'] = benchmark
+    meta.loc[:,'benchmark'] = benchmark
     meta = meta.groupby(by='benchmark').max()
     return meta
 
 def _process(df,
+             groups=None,
              peak=False,
              ppm_threshold_peak=10,
              ppm_threshold_cell=20,
@@ -167,9 +168,14 @@ def _process(df,
     """
     df = df.dropna(axis=0,how='all')  
     df = df.dropna(axis=1,how='all')
+    if groups is not None:
+        print(groups)
+        for group in groups:
+            print(group)
+            df.columns = df.columns.str.replace(group, group+'-')
     n_cells = np.int(df.shape[1]/2)
     cell_names = [name for i,name in enumerate(df.columns) if i%2==0]
-    group_names = [item.rsplit('-',1)[0] for item in cell_names]
+    group_names = [item.split('-')[0] for item in cell_names]
     
     m_z = df.iloc[:,[i for i in range(n_cells) if i%2==0]]
     begin = m_z.min().min()

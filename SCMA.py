@@ -18,6 +18,7 @@ from scma.function import _process, _filter3, _knn, _plot_embedding, _diff
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Single cell metabolomics analysis')
     parser.add_argument('--file', '-f', type=str, default='')
+    parser.add_argument('--group_names', '-g', nargs='+', default=None)
     parser.add_argument('--ppm_threshold_peak', type=int, default=10)
     parser.add_argument('--ppm_threshold_cell', type=int, default=20)
     parser.add_argument('--decrease', default=True)
@@ -44,6 +45,7 @@ if __name__ == '__main__':
         raise ValueError("{} file does not exist!")
     print('Preprocessing...')
     meta = _process(df,
+                    groups=args.group_names,
                     peak=args.peak,
                     ppm_threshold_peak=args.ppm_threshold_peak,
                     ppm_threshold_cell=args.ppm_threshold_cell,
