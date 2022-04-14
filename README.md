@@ -44,6 +44,6 @@ Output will be saved in the output folder including:
 * **heatmap.png**: heatmap of differential peaks among different groups
 
 #### Help
-Look for more usage of scMA
+Looking for more usages of scMA
 
 	scma.py --help 
